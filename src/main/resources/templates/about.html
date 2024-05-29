@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- using fragment -->
+    <div th:replace="${islogin} ? ~{base :: parent(~{::#hello})} : ~{base :: test(~{::#fail})} ">
+      <section id="hello">
+        <h1>login success</h1>
+      </section>
+      <section id="fail">
+        <h1>login fail</h1>
+      </section>
+    </div>
+  </body>
+</html>
