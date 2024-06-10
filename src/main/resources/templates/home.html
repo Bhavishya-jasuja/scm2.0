@@ -1,31 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" th:replace="~{base :: parent(~{::#about},~{::title},~{::script})}" >
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <title>Home Page</title>
 </head>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
-
-<link rel="stylesheet" data-th-href="@{'/css/output.css'}">
-
 <body>
-    <div class="mx-auto  w-1/2  bg-slate-400 mt-4 p-3">
-        <h1 data-th-text="${Name}">
-           Welcome Home Bhavishya 
-        </h1>
-        <p> Linkdin Profile: <span data-th-text="${linkdinProfile}"></span></p>
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni repellendus ratione eligendi voluptas neque rerum, ab iusto doloribus eius vero, numquam, perspiciatis minima consequuntur repellat. Laboriosam iure debitis voluptas ullam.
-        </p>
-    </div>
-
-    <!-- flow bite -->
-
-    
-
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
-
+  <div id="about" >
+    <h1>This is Home page</h1>
+  </div>
+  <script>
+    console.log("Home Page")
+  </script>
 </body>
 </html>
