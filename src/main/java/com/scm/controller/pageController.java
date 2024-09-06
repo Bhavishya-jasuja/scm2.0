@@ -19,7 +19,7 @@ public class pageController {
     }
 
 
-    // about my page 
+    // about page my.
     @RequestMapping("/about")
     public  String aboutPage(Model model)
 
