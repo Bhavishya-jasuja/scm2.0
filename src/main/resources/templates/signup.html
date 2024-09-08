@@ -1,14 +1,71 @@
 <!DOCTYPE html>
-<html lang="en" th:replace="~{base :: parent(~{::#about},~{::title},~{::script})}" >
+<html lang="en" th:replace="~{base :: parent(~{::#about},~{::title},~{::script})}">
 <head>
   <title>Signup Page</title>
 </head>
 <body>
-  <div id="about" >
-    <h1>This is Signup page</h1>
+  <div id="about">
+    <div class="flex justify-center pt-4 h-screen">
+      <a href="#" class="block card p-8 bg-white border border-gray-500 rounded-lg shadow-lg hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-500 dark:hover:bg-gray-700">
+        <h5 class="mb-4 text-3xl font-bold tracking-tight text-gray-900 dark:text-white">Signup Here</h5>
+        <p class="font-normal text-lg text-gray-400 dark:text-gray-400">Please fill in the form to create an account and start your journey with us.</p>
+        <form data-th-action="@{'/do-register'}" method="post" th:object="${userForm}" class="mt-5">
+          <!-- name -->
+          <div class="mb-3">
+            <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
+            <input type="text" id="name" th:field="*{name}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter your name" required />
+          </div>
+
+          <!-- email -->
+          <div class="mb-3">
+            <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
+            <input type="email" id="email" th:field="*{email}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@flowbite.com" required />
+          </div>
+
+          <!-- password -->
+          <div class="mb-3">
+            <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
+            <input type="password" id="password" th:field="*{password}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter your password" required />
+          </div>
+          
+          <!-- Phone number field with validation for numeric and 10 digits -->
+          <div class="mb-3">
+            <label for="phoneNumber" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Phone Number</label>
+            <input 
+              type="tel" 
+              id="phoneNumber" 
+              th:field="*{phoneNumber}"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
+              placeholder="Enter your phone number" 
+              pattern="\d{10}" 
+              maxlength="10" 
+              minlength="10"
+              inputmode="numeric" 
+              required 
+              oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10);"
+            />
+            <small class="text-gray-500 dark:text-gray-400">Enter exactly 10 digits.</small>
+          </div>
+
+          <!-- about -->
+          <div class="mb-3">
+            <label for="about" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">About</label>
+            <textarea id="about" th:field="*{about}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter your about" required></textarea>
+          </div>
+
+          <!-- button submit and reset -->
+          <div class="flex justify-center mt-5 gap-3">
+            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Signup</button>
+            <button type="reset" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Reset</button>
+          </div>
+        
+
+        </form>
+      </a>
+    </div>
   </div>
   <script>
-    console.log("Signup Page")
+    console.log("Signup Page");
   </script>
 </body>
 </html>

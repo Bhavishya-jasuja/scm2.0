@@ -37,12 +37,13 @@ public class User
     @Column(length = 65535)
     private String profilePic;
     private String phoneNumber;
-
+    
     //information
 
     private boolean enabled= false;
     private boolean emailVerified=false;
     private boolean phoneVerified=false;
+    
 
     //SELF, Google, github, facebook, linkdin, twitter
 
