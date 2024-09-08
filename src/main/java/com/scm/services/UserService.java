@@ -26,7 +26,7 @@ public interface UserService {
     void deleteUser(String id);
 
     //is user exists
-    boolean isUserExists(String id);
+    Optional<User> isUserExists(String id);
 
     // get user by email
     Optional<User> getUserByEmail(String email);
